@@ -1,17 +1,17 @@
 function easy(){
 
 const track = document.getElementById("track");
-
+//finds the track id of div
 const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
-
+// sees them mouse click
 const handleOnUp = () => {
   track.dataset.mouseDownAt = "0";  
   track.dataset.prevPercentage = track.dataset.percentage;
 }
-
+//sees the mouse stop clicking
 const handleOnMove = e => {
   if(track.dataset.mouseDownAt === "0") return;
-  
+  //sees if it hasnt been dragged yet
   const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
         maxDelta = window.innerWidth / 2;
   
@@ -31,6 +31,9 @@ const handleOnMove = e => {
     }, { duration: 1200, fill: "forwards" });
   }
 }
+
+
+
 
 /* -- Had to add extra lines for touch events -- */
 
