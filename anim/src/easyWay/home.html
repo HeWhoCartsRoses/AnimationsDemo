@@ -1,40 +1,16 @@
-import './App.css';
-import React,{useEffect, useState, useRef} from 'react';
-import easy from './easyWay/easy'
 
-function App() {
-  var percent=0
-  const [mouse,setMouse]=useState()
-  const [x, setX] = useState()
-  const [windo,setWindow]=useState([window.innerHeight,window.innerWidth])
-    useEffect(
-      () => {
-        const update = (e) => {
-          setX(e.x)
-          console.log('whatever you say boss')
-          if (mouse==='Mouse Down'){
-            console.log('got here boss!')
-            percent+=e.x;
-          }
-        }
-        const handleWindowResize = () => {
-          setWindow([window.innerWidth]);
-        };
-        window.addEventListener('mousemove', update)
-        window.addEventListener('resize',handleWindowResize)
-        return () => {
-          window.removeEventListener('mousemove', update)
-          window.removeEventListener('resize', handleWindowResize);
-        }
-      },
-      [setX]
-    )
-    const handleDrag= ()=>{
-      
-    }
-  return (
-    <body className="App" onDragStart={handleDrag} onLoad={easy}>
-      <div id='track'>
+
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">  
+    <link rel="stylesheet" href="./easy.css">
+    <script type='text/JavaScript'src="./easy.js"></script>
+
+  </head>
+  <body onload="easy()">
+    <div id="track" data-mouse-down-at="0" data-prev-percentage="0">
         <img class='image' draggable='false' alt='machined parts'src='https://images.unsplash.com/photo-1567093322503-341d262ad8f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hY2hpbmVyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'></img>
         <img class='image' draggable='false' alt='machined parts' src='https://images.unsplash.com/photo-1567177173026-402dd75a5ab7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1hY2hpbmVyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'></img>
         <img class='image' draggable='false' alt='machined parts' src='https://images.unsplash.com/photo-1627807452502-0c8329fc710b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fG1hY2hpbmVyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'></img>
@@ -43,18 +19,6 @@ function App() {
         <img class='image' draggable='false' alt='machined parts' src='https://images.unsplash.com/photo-1618828729232-347c3160c820?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGNoZW1pY2Fsc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'></img>
         <img class='image' draggable='false' alt='machined parts' src='https://images.unsplash.com/photo-1627052428109-576e839d100a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDR8fGNoZW1pY2Fsc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'></img>
         <img class='image' draggable='false' alt='machined parts' src='https://images.unsplash.com/photo-1636690598773-c50645a47aeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTl8fGNoZW1pY2Fsc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'></img>
-        </div> 
-        <div>
-          <h1>
-            {x}
-          </h1>
-          <h2>{mouse} next</h2>
-          <h3>Width of page: {windo[1]}</h3>
-          <h4>Percent of page Scrolled:{percent}</h4>
-        </div>
-    </body>
-    
-  );
-}
-
-export default App;
+      </div>
+  </body>
+</html>
