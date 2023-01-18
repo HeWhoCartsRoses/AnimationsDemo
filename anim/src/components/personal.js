@@ -23,6 +23,7 @@ z.animate({
     }, { duration: 1200, fill: "forwards" });
   } 
   }
+
   useEffect(
     () => {
       const update = (e)=>{
@@ -50,7 +51,7 @@ z.animate({
       window.removeEventListener('mousedown',onDown)
       }
     },
-    [setX, setMouse,setPercent,setLast]
+    [setX, setMouse,setPercent,setLast,percent]
   )
 return (
   <div className="App" onPointerMove={handleOnMove}>
